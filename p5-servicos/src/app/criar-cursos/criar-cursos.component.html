@@ -1,0 +1,19 @@
+<main>
+    <section>
+        <h5 style="font-family: 'Poppins', 'sans-serif';">Serviços: Lista de cursos</h5>
+
+        <br><hr><br>
+
+        <input #cursoInput type="text" style="width: 220px; padding: 4px;" placeholder="Insira o nome de um curso"><br><br>
+
+        <button style="padding: 8px;" (click)="addCurso(cursoInput.value)">Adicionar curso à lista</button><br><br>
+
+        <div>
+            <p *ngFor="let c of cursos" style="text-align: justify; margin-left: 170px;">
+                ✔  {{ c }}
+            </p>
+        </div><br>
+
+        <receber-curso-criado></receber-curso-criado>
+    </section>
+</main>

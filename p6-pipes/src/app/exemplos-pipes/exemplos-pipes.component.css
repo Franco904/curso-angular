@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+main {
+    background-color: #ecf0f1;
+    min-height: 623px;
+}
+section {
+    position: absolute;
+    min-width: 500px;
+    height: auto;
+    left: 33%;
+    top: 10%;
+    padding: 30px;
+    background-color: #00b893c2;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px 2px #6e6d6a8f;
+}

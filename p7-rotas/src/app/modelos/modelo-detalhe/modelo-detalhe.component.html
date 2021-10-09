@@ -1,0 +1,14 @@
+<h5>Detalhes do modelo:</h5>
+
+<div style="text-align: justify; margin: 20px 0 30px 100px;">
+    <p>
+        - Id: <strong>{{ modelo?.id }}</strong> <br>
+        - Nome: <strong>{{ modelo?.nome }}</strong> <br>
+        - Marca: <strong>{{ modelo?.marca }}</strong> <br>
+        - Tipo: <strong>{{ modelo?.tipo }}</strong>
+    </p>
+</div>
+
+<button [disabled]="!desenvolvedor"  type="button" class="btn btn-secondary" (click)="editarModelo()">
+    <i class="fas fa-edit" style="margin-right: 5px;"></i> Editar modelo
+</button>

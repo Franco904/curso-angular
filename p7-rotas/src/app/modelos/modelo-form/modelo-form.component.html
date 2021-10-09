@@ -1,0 +1,21 @@
+<h5>Editar modelo:</h5>
+
+<div class="row">
+    <label for="id" style="text-align: start; margin: 15px 0 5px 0;">Id:</label>
+    <input disabled type="text" [(ngModel)]="modelo.id" class="form-control">
+</div>
+<div class="row">
+    <label for="nome" style="text-align: start; margin: 15px 0 5px;">Nome:</label>
+    <input type="text" [(ngModel)]="modelo.nome" (change)="alterouInput()" class="form-control" placeholder="Nome do modelo">
+</div>
+<div class="row">
+    <label for="marca" style="text-align: start; margin: 15px 0 5px 0;">Marca:</label>
+    <input type="text" [(ngModel)]="modelo.marca" (change)="alterouInput()" class="form-control" placeholder="Marca a qual o modelo pertence">
+</div>
+<div class="row">
+    <label for="tipo" style="text-align: start; margin: 15px 0 5px 0;">Tipo:</label>
+    <input type="text" [(ngModel)]="modelo.tipo" (change)="alterouInput()" class="form-control" placeholder="Tipo do modelo (carroceria)">
+</div><br>
+<!-- <div class="row">  
+    <button type="button" class="btn btn-primary">Salvar</button>
+<div> -->

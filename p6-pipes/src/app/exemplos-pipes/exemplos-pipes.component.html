@@ -1,0 +1,19 @@
+<main>
+    <section>
+        <h5 style="font-family: 'Poppins', sans-serif;">Pipes: camelCase</h5>
+
+        <br><hr><br>
+        <ul style="text-align: justify; margin-left: 150px;">
+            <li><strong>Título: </strong>{{ livro.titulo | camelCase }}</li>
+            <li><strong>Autor: </strong>{{ livro.autor }}</li>
+            <li><strong>Editora: </strong>{{ livro.editora }}</li>
+            <li><strong>Avaliação: </strong>⭐{{ livro.avaliacao | number: '1.1-2' }}</li>
+            <li><strong>Páginas: </strong>{{ livro.paginas | number }}</li>
+            <li><strong>Preço: </strong>{{ livro.preco | currency: 'BRL':true }}</li>
+            <li><strong>Data: </strong>{{ livro.data | date }}</li>
+            
+            <!-- {{ livro | json }} para formatar o objeto na tela -->
+            <!-- <li><strong>Livro: </strong>{{ livro }}</li>  -->
+        </ul>
+    </section>
+</main>

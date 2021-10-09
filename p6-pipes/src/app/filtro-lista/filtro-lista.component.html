@@ -1,0 +1,19 @@
+<main>
+    <section>
+        <h5 style="font-family: 'Poppins', sans-serif;">Pipes: Filtro de lista</h5>
+
+        <br><hr><br>
+
+        <br>
+
+        <input type="text" style="padding: 8px;" placeholder="Adicione um animal" #animal><br><br>
+        <button style="padding: 8px;" (click)="addAnimal(animal.value)">Adicionar</button><br><br>
+
+        <input type="text" style="padding: 8px;" placeholder="Filtro.." [(ngModel)]="filtro"><br><br>
+        
+
+        <ul *ngFor="let a of animais | listaFiltro: filtro" style="text-align: justify; margin-left: 200px;">
+            <li>{{ a }}</li>
+        </ul>
+    </section>
+</main>

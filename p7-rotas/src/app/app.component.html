@@ -1,0 +1,66 @@
+<main>
+    <section>
+        <h5 style="font-family: 'Poppins', sans-serif;">Rotas</h5>
+
+        <br><hr><br>
+
+        <div *ngIf="menu" id="navbar">
+            
+            <!-- Existem mudanças no atributo style para CSS -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-radius: 5px; padding: 8px;">
+    
+                <!-- Logo (home) -->
+                <a routerLink="" class="navbar-brand" style="margin-left: 15px; cursor: pointer;">Logo</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Abas da navbar -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" style="margin: auto; cursor: pointer;">
+                        <!-- Aba Home -->
+                        <li routerLinkActive="active" class="nav-item" style="margin-right: 10px;">
+                            <a routerLink="" class="nav-link">
+                                <i class="fas fa-home" style="margin-right: 5px;"></i> Home
+                            </a>
+                        </li>
+                        <!-- Aba Login -->
+                        <li routerLinkActive="active" class="nav-item">
+                            <a routerLink="/login" class="nav-link">
+                                <i class="fas fa-user" style="margin-right: 5px;"></i> Login
+                            </a>
+                        </li>
+                        <!-- Aba Marcas -->
+                        <li routerLinkActive="active" class="nav-item" style="margin-left: 10px;">
+                            <a routerLink="/marcas" [queryParams]="{ pagina:1 }" class="nav-link">
+                                <i class="fas fa-car-alt" style="margin-right: 5px;"></i> Marcas
+                            </a>
+                        </li>
+                        <!-- <li routerLinkActive="active" class="nav-item" style="margin-left: 10px;">
+                            <a [routerLink]="['/marca', idMarca.value]" class="nav-link">
+                                <i class="fas fa-info-circle" style="margin-right: 5px;"></i> Detalhes da marca
+                            </a>
+                        </li> -->
+    
+                        <!-- Aba Modelo -->
+                        <li routerLinkActive="active" class="nav-item" style="margin-left: 10px;">
+                            <a routerLink="/modelos" class="nav-link">
+                                <i class="fas fa-bookmark" style="margin-right: 5px;"></i> Modelos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <br><hr><br>
+        </div>
+        
+        <div class="container">
+            <!-- <input type="text" class="form-control" placeholder="Buscar id da marca" #idMarca><br>  -->
+            
+            <!-- Conteúdo dos componentes roteados: -->
+            <router-outlet></router-outlet>
+        </div>
+    </section> 
+</main>

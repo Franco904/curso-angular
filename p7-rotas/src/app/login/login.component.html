@@ -1,0 +1,17 @@
+<h5>Entre com a sua conta.</h5>
+
+<div class="col-4" style="margin: auto;">
+    <div class="row">
+        <label for="usuario" style="text-align: start; margin: 15px 0 5px 0;">Usuário:</label>
+        <input type="text" [(ngModel)]="usuario.nome" class="form-control" id="usuario" placeholder="Nome de usuário">
+    </div>
+    <div class="row">
+        <label for="senha" style="text-align: start; margin: 15px 0 5px 0;">Senha:</label>
+        <input type="password" [(ngModel)]="usuario.senha" class="form-control" id="senha" placeholder="Senha">
+    </div><br>
+    <div class="row">
+        <button type="button" class="btn btn-primary" style="margin: 25px 0 5px 0;" (click)="fazerLogin()">
+            <i class="fas fa-sign-in-alt" style="margin-right: 5px;"></i> Login
+        </button>
+    </div>
+</div>

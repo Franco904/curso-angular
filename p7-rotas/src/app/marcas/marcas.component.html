@@ -1,0 +1,15 @@
+<div class="col-6" style="margin: auto;">
+    <p>Página: {{ pagina }}</p>
+    <button type="button" (click)="proximaPagina()" class="btn btn-primary">Próx. Página</button><br><br>
+
+    <p>Marcas de Carro:</p>
+
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action"
+        *ngFor="let marca of marcas"
+        style="width: 50%; margin: auto;"
+        [routerLink]="['/marcas', marca.id]">
+            {{ marca.nome }}
+        </a>
+    </div>
+</div>
