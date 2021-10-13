@@ -1,2 +1,2 @@
 # curso-angular
- Repositório para o curso de Angular 2+
+Aprendizado das principais funcionalidades do framework Angular na prática, para a construção de aplicações web.
