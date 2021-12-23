@@ -1,0 +1,11 @@
+#conteudoDetalhes {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+#detalhes {
+    border-radius: 10px;
+    background-color: #d8e3eee0;
+    padding: 15px 15px 0 15px;
+    width: 300px;
+}

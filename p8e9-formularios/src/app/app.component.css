@@ -11,12 +11,28 @@ main {
 }
 section {
     box-sizing: border-box;
-    width: 800px;
+    width: 900px;
     padding: 30px;
-    background-color: #b8e994;
+    background-color: #a29bfe;
     text-align: center;
     border-radius: 5px;
     box-shadow: 1px 1px 7px 2px #6e6d6a8f;
+}
+h5 {
+    font-family: 'Poppins', sans-serif;
+}
+nav {
+    height: 50px;
+    border-radius: 5px; 
+    padding: 8px;
+    text-align: center;
+}
+.container {
+    background-color: #f8f9fa;
+    height: 100%;
+    border-radius: 5px; 
+    padding: 25px 30px 30px 30px;
+    text-align: center;
 }
 li:hover {
     background-color: #e2e2e2;

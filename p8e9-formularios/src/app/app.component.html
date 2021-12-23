@@ -1,0 +1,31 @@
+<main>
+  <section>
+    <h5>Formulários</h5>
+
+    <br><hr><br>
+
+    <!-- Existem mudanças no atributo style para CSS -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin: auto; cursor: pointer;">
+          <li routerLinkActive="active" class="nav-item"  style="margin-right: 15px;">
+            <a routerLink="/templateForm" class="nav-link">
+              <i class="fas fa-code" style="margin-right: 5px;"></i> Template Driven
+            </a>
+          </li>
+          <li routerLinkActive="active" class="nav-item">
+            <a routerLink="/dataForm" class="nav-link">
+              <i class="fas fa-align-left" style="margin-right: 5px;"></i> Data Driven
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+
+    <!-- Rotas da aplicação -->
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</main>

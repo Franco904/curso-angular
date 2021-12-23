@@ -8,10 +8,10 @@ registerLocaleData(localePt, 'pt');
 
 import { AppComponent } from './app.component';
 import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
-import { CamelCasePipe } from './pip/camel-case.pipe';
-import { ListaPipe } from './pip/lista.pipe';
+import { CamelCasePipe } from './pipes/camel-case.pipe';
+import { ListaPipe } from './pipes/lista.pipe';
 import { FiltroListaComponent } from './filtro-lista/filtro-lista.component';
-import { FiltroListaImpuroPipe } from './pip/filtro-lista-impuro.pipe';
+import { FiltroListaImpuroPipe } from './pipes/filtro-lista-impuro.pipe';
 import { FiltroListaImpuroComponent } from './filtro-lista-impuro/filtro-lista-impuro.component';
 
 @NgModule({

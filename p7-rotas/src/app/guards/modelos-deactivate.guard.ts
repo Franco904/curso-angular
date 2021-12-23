@@ -15,7 +15,7 @@ export class ModelosDeactivateGuard implements CanDeactivate<IFormCanDeactivate>
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log('ModelosDeactivate Guard');  
+    console.log('ModelosDeactivate Guard'); 
 
     // retorno do confirm() -> true caso "OK", false caso "Cancelar"
     return component.podeMudarRota();

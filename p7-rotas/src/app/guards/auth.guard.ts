@@ -29,14 +29,14 @@ export class AuthGuard implements CanActivate {
       return true;  
     }
 
-    this.router.navigate(['/login']);   
+    this.router.navigate(['/login']);
 
     return false;
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log('canLoad: Verificando se usuário pode carregar código módulo.')
+    console.log('canLoad: Verificando se usuário pode carregar código do módulo.')
     
     return this.verificarAcesso();
   }

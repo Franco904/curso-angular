@@ -10,13 +10,13 @@ import { ModeloDetalheResolver } from '../guards/modelo-detalhe.resolver';
 
 const modelosRoutes: Routes = [
   { path: '', component: ModelosComponent, 
-      canActivateChild: [ModelosActivateChildGuard],                     // Configurações de acesso as rotas filhas.
+      canActivateChild: [ModelosActivateChildGuard],        // Configurações de acesso as rotas filhas.
       children: [                                           // Definição de rotas filhas.
           { path: 'novo', component: ModeloFormComponent }, // Primeiro os caminhos hard-coded para evitar colisões de rotas.
 
           { path: ':id', component: ModeloDetalheComponent,
               resolve: {modelo : ModeloDetalheResolver} }, // Tentando carregar objeto Modelo antes de inicializar o componente correspondente.
-
+              
           { path: ':id/editar', component: ModeloFormComponent,
               canDeactivate: [ModelosDeactivateGuard] }     // Configurações de desativação da rota (ModeloForm).
   ]}

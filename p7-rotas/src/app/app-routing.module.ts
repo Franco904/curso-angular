@@ -9,26 +9,21 @@ import { AuthGuard } from './guards/auth.guard';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent,
       canActivate: [AuthGuard] 
-       },
-
+  },
   { path: 'login', component: LoginComponent },
-
   { path: 'marcas', 
       canActivate: [AuthGuard], // (Esta rota só poderá ser acessada por usuários autenticados)
       canLoad: [AuthGuard],
       loadChildren: () => import('./marcas/marcas.module').then(
-    module => module.MarcasModule
-  ) },
-  
+    module => module.MarcasModule) 
+  },
   { path: 'modelos', 
       canActivate: [AuthGuard],
       canLoad: [AuthGuard],
       loadChildren: () => import('./modelos/modelos.module').then(
-    module => module.ModelosModule
-  ) },
-
+    module => module.ModelosModule) 
+  },
   { path: '', redirectTo: "/home", pathMatch: 'full' },
-
   { path: '**', component: PaginaNaoEncontradaComponent } // Deixar por último
 ];
 
