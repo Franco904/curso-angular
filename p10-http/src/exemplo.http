@@ -1,0 +1,12 @@
+http://localhost:3000/praias
+
+###
+
+POST http://localhost:3000/praias HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Itaguaçu",
+    "regiao": "Continente",
+    "banho" : false
+}

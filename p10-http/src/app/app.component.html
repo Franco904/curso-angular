@@ -4,11 +4,35 @@
 
     <br><hr><br>
 
-    <p>Http module!</p>
+    <!-- Existem mudanças no atributo style para CSS -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin: auto; cursor: pointer;">
+          <li routerLinkActive="active" class="nav-item" style="margin-right: 15px;">
+            <a routerLink="/home" class="nav-link">
+              <i class="fas fa-home" style="margin-right: 5px;"></i> Home
+            </a>
+          </li>
+          <li routerLinkActive="active" class="nav-item" style="margin-right: 15px;">
+            <a routerLink="/praias" class="nav-link">
+              <i class="fas fa-umbrella-beach" style="margin-right: 5px;"></i> Praias
+            </a>
+          </li>
+          <p style="margin-right: 15px;">|</p>         
+          <li routerLinkActive="active" class="nav-item">
+            <a routerLink="/rxjs-poc" class="nav-link">
+              <i class="fas fa-signal" style="margin-right: 5px;"></i> RxJS POC
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <br>
 
     <!-- Rotas da aplicação -->
-    <!-- <div class="container">
+    <div class="container">
       <router-outlet></router-outlet>
-    </div> -->
+    </div>
   </section>
 </main>

@@ -1,0 +1,27 @@
+<div class="container">
+    <h3 class="mt-4 ml-3">RxJS POC - Unsubscribe</h3>
+    <div class="row mt-4 ml-3">
+        <form class="form-inline">
+            <div class="form-group mr-sm-2" style="width: 33%;">
+                <input type="text" class="form-control" #valor placeholder="Valor">
+            </div>
+            <div class="form-group mx-sm-2">
+                <button type="button" class="btn btn-outline-primary" (click)="emitirValor(valor.value)">
+                    Emitir Valor
+                </button>
+            </div>
+            <div class="form-group mx-sm-2">
+                <button type="button" class="btn btn-outline-danger" (click)="destruirComponentes()">
+                    Mostrar / Destruir Componentes
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row mt-4" *ngIf="mostrarComponentes" >
+      <poc class="col-md-4"></poc>
+      <poc-unsub class="col-md-4"></poc-unsub>
+      <poc-async class="col-md-4"></poc-async>
+      <poc-take-until class="col-md-4"></poc-take-until>
+      <poc-take class="col-md-4"></poc-take>
+    </div>
+</div> 

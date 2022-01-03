@@ -1,0 +1,18 @@
+ul {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    list-style-position: outside;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 1px 3px #4f4f5073;
+    transform:          rotate(2deg);
+    -ms-transform:      rotate(2deg);
+    -moz-transform:     rotate(2deg);
+    -webkit-transform:  rotate(2deg);
+    -o-transform:       rotate(2deg);
+}

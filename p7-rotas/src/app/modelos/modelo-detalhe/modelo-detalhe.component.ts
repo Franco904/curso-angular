@@ -2,7 +2,6 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ModelosService } from '../modelos.service';
 import { AuthService } from 'src/app/login/auth.service';
 import { Modelo } from '../modelo';
 
@@ -48,7 +47,7 @@ export class ModeloDetalheComponent implements OnInit {
       }
     );
 
-    this.desenvolvedor = this.authService.getUsuarioAtivo().tipo === 'Desenvolvedor' ? true: false;
+    this.desenvolvedor = this.authService.getUsuarioAtivo().tipo === 'Desenvolvedor' ? true : false;
   }
 
   ngOnDestroy() {

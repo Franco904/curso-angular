@@ -1,0 +1,50 @@
+<div class="card border-light mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h5>Praias</h5>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" [routerLink]="['novo']">Adicionar uma praia</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover" *ngIf="praias$ | async as praias; else loading" >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Praia</th>
+                    <th>Detalhes</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let praia of praias">
+                    <td>{{ praia.id }}</td>
+                    <td>{{ praia.nome }}</td>
+                    <td>
+                        <button class="btn btn-outline-info mb-1 btn-sm">
+                            <i class="fas fa-info" [routerLink]="[praia.id]"></i>
+                        </button>
+                    </td>
+                    <td style="text-align: end;">
+                        <span class="float-right">
+                            <button class="btn btn-outline-warning mb-1 btn-sm">
+                            Atualizar
+                            </button>
+                            
+                            <button class="btn btn-outline-danger mb-1 btn-sm">
+                            Remover
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ng-template #loading>
+            <div id="loading">
+                <span>Carregando praias...</span>
+            </div>
+        </ng-template>
+    </div>
+</div>

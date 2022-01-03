@@ -167,7 +167,7 @@ export class DataFormComponent extends BaseForm implements OnInit {
         // Mudança de rota
         this.router.navigate(['/submetido']);
       },
-      (error: any) => alert('Ops.. Ocorreu um erro'),
+      (error: any) => alert('Ops.. Ocorreu um erro: \n' + error),
       (() => console.log('Fim do subscribe'))
       );
   }

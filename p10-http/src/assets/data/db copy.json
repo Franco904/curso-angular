@@ -1,0 +1,9 @@
+{
+    "praias": [
+      { "id": 1, "nome": "Forte", "regiao": "Jurerê-Daniela", "banho": "True" },
+      { "id": 2, "nome": "Jurerê", "regiao": "Jurerê", "banho": "True" },
+      { "id": 3, "nome": "Daniela", "regiao": "Daniela", "banho": "True" },
+      { "id": 4, "nome": "Campeche", "regiao": "Campeche", "banho": "True" },
+      { "id": 5, "nome": "Barra da Lagoa", "regiao": "Barra da Lagoa", "banho": "True" }
+    ]
+}
