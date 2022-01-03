@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+
+import { take, tap } from 'rxjs/operators';
 
 import { EnviarValorService } from '../enviar-valor.service';
 
@@ -18,6 +21,15 @@ export class PocTakeComponent implements OnInit {
   constructor(private enviarValorService: EnviarValorService) {}
 
   ngOnInit(): void {
+    this.enviarValorService.getValor()
+      .pipe(
+        tap(v => console.log(this.nome, v)),
+        take(1)
+      )
+      .subscribe(novoValor => this.valor = novoValor);
   }
 
+  ngOnDestroy() {
+    console.log(`${this.nome} foi destruído.`);
+  }
 }

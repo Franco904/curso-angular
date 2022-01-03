@@ -15,6 +15,6 @@ export class EnviarValorService {
   }
 
   getValor() {
-    return this.emissor$.asObservable(); // Acesso do valor via subscribe
+    return this.emissor$.asObservable(); // Acesso do valor via subscribe/pipe async/take
   }
 }
