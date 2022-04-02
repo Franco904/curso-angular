@@ -1,11 +1,11 @@
 import { FormValidations } from '../shared/form-validations';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { EMPTY, Observable } from 'rxjs';
-import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { distinctUntilChanged, map, switchMap, } from 'rxjs/operators';
 
 import { BaseForm } from '../shared/model/base-form';
 import { DropdownService } from '../shared/services/dropdown.service';

@@ -1,23 +1,15 @@
-import { Subscription, Observable } from 'rxjs';
-import { PraiasService } from './services/praias.service';
 import { Component, OnInit } from '@angular/core';
-
-import { Praia } from './model/praia';
 
 @Component({
   selector: 'praias',
   templateUrl: './praias.component.html',
-  styleUrls: ['./praias.component.scss'],
-  preserveWhitespaces: true
+  styleUrls: ['./praias.component.scss']
 })
 export class PraiasComponent implements OnInit {
 
-  praias$?: Observable<Praia[]>;
-
-  constructor(private praiasService: PraiasService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.praias$ = this.praiasService.listarPraias();
   }
 
 }

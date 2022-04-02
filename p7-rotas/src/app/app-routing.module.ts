@@ -12,7 +12,7 @@ const appRoutes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'marcas', 
-      canActivate: [AuthGuard], // (Esta rota só poderá ser acessada por usuários autenticados)
+      canActivate: [AuthGuard], // Esta rota só poderá ser acessada por usuários autenticados
       canLoad: [AuthGuard],
       loadChildren: () => import('./marcas/marcas.module').then(
     module => module.MarcasModule) 
@@ -23,7 +23,7 @@ const appRoutes: Routes = [
       loadChildren: () => import('./modelos/modelos.module').then(
     module => module.ModelosModule) 
   },
-  { path: '', redirectTo: "/home", pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PaginaNaoEncontradaComponent } // Deixar por último
 ];
 

@@ -34,6 +34,7 @@ export class PocTakeUntilComponent implements OnInit {
   ngOnDestroy() {
     this.unsub$.next(); // Emite
     this.unsub$.complete(); // Finaliza para prevenir memory leak
+
     console.log(`${this.nome} foi destruído.`);
   }
 }

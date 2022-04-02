@@ -1,1 +1,27 @@
-<p>praias-form works!</p>
+<h5 style="margin-bottom: 20px;">Nova praia</h5>
+
+<form class="needs-validation" novalidate [formGroup]="form">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01" style="margin-bottom: 5px;">Nome</label>
+          <input type="text" class="form-control" id="validationCustom01" required>
+          <div class="valid-feedback">
+                Válido
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02" style="margin-bottom: 5px;">Região</label>
+            <input type="text" class="form-control" id="validationCustom02" required>
+            <div class="valid-feedback">
+                Válido
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom03" style="margin-bottom: 5px;">Apta para banho</label>
+            <input type="text" class="form-control" id="validationCustom03" required>
+            <div class="valid-feedback">
+                Válido
+            </div>
+        </div>
+    </div>
+</form>
