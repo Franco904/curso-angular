@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   title = 'p10-http';
 
   showDefaultNavigationBar = true;
-  unsub$ = new Subject<any>();
+  unsub$ = new Subject();
 
   constructor(
     private praiasService: PraiasService,
