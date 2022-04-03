@@ -1,4 +1,4 @@
 export class Radio {
-    valor?: string;
+    valor?: boolean;
     descricao?: string;
 }

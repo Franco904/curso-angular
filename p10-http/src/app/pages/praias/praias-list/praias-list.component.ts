@@ -58,4 +58,9 @@ export class PraiasListComponent implements OnInit {
     this.praiasService.changeNavigationBar();
   }
 
+  onEdit(idPraia?: number) {
+    if (idPraia) this.router.navigate(['/praias/edit', idPraia]);
+    this.praiasService.changeNavigationBar();
+  }
+
 }

@@ -18,13 +18,27 @@ export class PraiasService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getPraiaById(idPraia?: number) {
+    return this.httpClient.get<Praia>(`${this.API}/${idPraia}`)
+      .pipe(take(1));
+  }
+
   loadPraias() {
     return this.httpClient.get<Praia[]>(this.API)
       .pipe(delay(1000));
   }
 
-  createPraia(praia: Praia) {
+  writePraia(praia: Praia, isEditing: boolean) {
+    return isEditing ? this.updatePraia(praia) : this.createPraia(praia);
+  }
+
+  private createPraia(praia: Praia) {
     return this.httpClient.post<Praia>(this.API, praia)
+      .pipe(take(1));
+  }
+
+  private updatePraia(praia: Praia) {
+    return this.httpClient.put<Praia>(`${this.API}/${praia.id}`, praia)
       .pipe(take(1));
   }
 
