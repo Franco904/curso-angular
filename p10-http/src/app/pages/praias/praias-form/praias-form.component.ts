@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
+import { CustomModalService } from '../../shared/services/custom-modal.service';
 import { Radio } from '../model/radio';
 import { PraiasService } from '../services/praias.service';
-import { AlertModalService } from '../../shared/services/alert-modal.service';
 
 @Component({
   selector: 'praias-form',
@@ -30,7 +30,7 @@ export class PraiasFormComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute,
     private praiasService: PraiasService,
-    private alertModalService: AlertModalService,
+    private customModalService: CustomModalService,
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +42,9 @@ export class PraiasFormComponent implements OnInit {
     //   .subscribe({
     //     next: (praia) => this.updateForm(praia),
     //   });
-    
-    this.alertModalService.showDangerAlert('Houve um erro ao editar a praia. Tente novamente mais tarde.');
 
     const praia = this.route.snapshot.data['praia'];
-    this.isEditing = praia !== undefined;
+    this.isEditing = !!praia;
 
     this.form = this.formBuilder.group({
       id: [praia?.id],
@@ -70,13 +68,13 @@ export class PraiasFormComponent implements OnInit {
       this.praiasService.writePraia(this.form.value, this.isEditing)
         .subscribe({
           next: () => this.isLoading = true,
-          error: () => this.alertModalService.showDangerAlert(msgError),
+          error: () => this.customModalService.showDangerAlert(msgError),
           complete: () => {
             this.isLoading = false;
-            this.alertModalService.showSuccessAlert(msgSuccess);
+            this.customModalService.showSuccessAlert(msgSuccess);
             this.location.back();
           }
-        }); 
+        });
     }
   }
 

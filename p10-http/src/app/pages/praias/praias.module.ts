@@ -1,14 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { PraiasComponent } from './praias.component';
-import { PraiasListComponent } from './praias-list/praias-list.component';
-import { PraiasFormComponent } from './praias-form/praias-form.component';
 import { PraiasDetalhesComponent } from './praias-detalhes/praias-detalhes.component';
+import { PraiasFormComponent } from './praias-form/praias-form.component';
+import { PraiasListComponent } from './praias-list/praias-list.component';
 import { PraiasRoutingModule } from './praias-routing.module';
+import { PraiasComponent } from './praias.component';
 
 const components = [
   PraiasComponent,

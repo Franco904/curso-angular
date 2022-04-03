@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 
 import { take, tap } from 'rxjs/operators';
 
@@ -18,7 +17,7 @@ export class PocTakeComponent implements OnInit {
   nome = 'Componente com take';
   valor: string = '';
 
-  constructor(private enviarValorService: EnviarValorService) {}
+  constructor(private enviarValorService: EnviarValorService) { }
 
   ngOnInit(): void {
     this.enviarValorService.getValor()

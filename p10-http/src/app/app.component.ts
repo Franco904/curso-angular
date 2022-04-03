@@ -24,12 +24,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.praiasService.getMustChangeNavigationBar()
-    .pipe(takeUntil(this.unsub$))
-    .subscribe({
-      next: (showDefaultNavigationBar) => {
-        this.showDefaultNavigationBar = showDefaultNavigationBar;
-      },
-    });
+      .pipe(takeUntil(this.unsub$))
+      .subscribe({
+        next: (showDefaultNavigationBar) => {
+          this.showDefaultNavigationBar = showDefaultNavigationBar;
+        },
+      });
   }
 
   ngOnDestroy() {

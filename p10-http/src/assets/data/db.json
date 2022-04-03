@@ -37,40 +37,10 @@
       "id": 6
     },
     {
-      "nome": "Santinho",
-      "regiao": "Santinho",
-      "banho": true,
-      "id": 7
-    },
-    {
       "id": 8,
       "nome": "Cacupé",
       "regiao": "Cacupé",
       "banho": false
-    },
-    {
-      "id": 9,
-      "nome": "Nova praia",
-      "regiao": "Nova região",
-      "banho": false
-    },
-    {
-      "id": 10,
-      "nome": "remover",
-      "regiao": "remover",
-      "banho": true
-    },
-    {
-      "id": 11,
-      "nome": "remover",
-      "regiao": "remover",
-      "banho": true
-    },
-    {
-      "id": 12,
-      "nome": "remover",
-      "regiao": "remove",
-      "banho": true
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 
-import { Observable, of } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 
 import { Praia } from '../model/praia';
 import { PraiasService } from '../services/praias.service';
@@ -17,10 +17,10 @@ export class PraiasResolverGuard implements Resolve<Praia> {
 
     // Editing
     if (route.params && route.params['id']) {
-       return this.service.getPraiaById(route.params['id']);
+      return this.service.getPraiaById(route.params['id']);
     }
 
-    return of({});
+    return EMPTY;
   }
 
 }

@@ -1,4 +1,3 @@
-
 {
   "header": {
     "reportVersion": 2,
@@ -289,10 +288,8 @@
       "writes": 281
     }
   },
-  "libuv": [
-  ],
-  "workers": [
-  ],
+  "libuv": [],
+  "workers": [],
   "environmentVariables": {
     "ACLOCAL_PATH": "C:\\Program Files\\Git\\mingw64\\share\\aclocal;C:\\Program Files\\Git\\usr\\share\\aclocal",
     "ALLUSERSPROFILE": "C:\\ProgramData",

@@ -6,11 +6,13 @@ import { DataFormModule } from './data-form/data-form.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PraiasComponent } from './pages/praias/praias/praias.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PraiasComponent
+    PraiasComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,

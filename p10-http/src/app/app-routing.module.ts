@@ -7,8 +7,10 @@ import { UnsubscribePocComponent } from './pages/unsubscribe-rxjs/unsubscribe-po
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'praias',
-    loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule) },
+  {
+    path: 'praias',
+    loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule)
+  },
   { path: 'rxjs-poc', component: UnsubscribePocComponent },
   { path: '', redirectTo: "/home", pathMatch: 'full' },
   { path: '**', component: PaginaNaoEncontradaComponent }
@@ -16,7 +18,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
   })],
   exports: [RouterModule]
 })

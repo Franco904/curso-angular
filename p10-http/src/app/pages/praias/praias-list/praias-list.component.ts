@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable, of, pipe, Subject } from 'rxjs';
-import { catchError, take } from 'rxjs/operators';
+import { EMPTY, Observable, pipe, Subject } from 'rxjs';
+import { catchError, switchMap, take } from 'rxjs/operators';
 
+import { CustomModalService } from '../../shared/services/custom-modal.service';
 import { Praia } from '../model/praia';
 import { PraiasService } from '../services/praias.service';
-import { AlertModalService } from '../../shared/services/alert-modal.service';
 
 @Component({
   selector: 'praias-list',
@@ -15,12 +15,14 @@ import { AlertModalService } from '../../shared/services/alert-modal.service';
   preserveWhitespaces: true
 })
 export class PraiasListComponent implements OnInit {
+  praiaSelected?: Praia;
+
   praias$?: Observable<Praia[]>;
   error$?: Subject<boolean>;
 
   constructor(
     private praiasService: PraiasService,
-    private alertModalService: AlertModalService,
+    private customModalService: CustomModalService,
     private router: Router,
   ) { }
 
@@ -31,26 +33,13 @@ export class PraiasListComponent implements OnInit {
   onRefresh() {
     this.praias$ = this.praiasService.loadPraias()
     pipe(
-      catchError(error => {
+      catchError(_ => {
         // this.error$?.next(true);
-        this.handleError();
+        this.customModalService.showDangerAlert('Erro ao carregar praias cadastradas. Tente novamente mais tarde.');
 
-        return of({});
+        return EMPTY;
       })
     );
-
-    // Com método subscribe utilizando chave e valor
-    this.praiasService.loadPraias()
-    .pipe(take(1))
-    .subscribe({
-      next: (praias) => praias,
-      error: (error) => error,
-      complete: () => 'Subscribe completo',
-    })
-  }
-
-  handleError() {
-    this.alertModalService.showDangerAlert('Erro ao carregar praias cadastradas. Tente novamente mais tarde.');
   }
 
   goToPraiasForm() {
@@ -61,6 +50,31 @@ export class PraiasListComponent implements OnInit {
   onEdit(idPraia?: number) {
     if (idPraia) this.router.navigate(['/praias/edit', idPraia]);
     this.praiasService.changeNavigationBar();
+  }
+
+  onDelete(praia?: Praia) {
+    const result$ = this.customModalService.showConfirm(
+      'Deseja excluir a praia?',
+      'Se confirmada a exclusão, não será possível recuperar a praia.',
+      'Cancelar',
+      'Excluir',
+    );
+
+    result$
+      .pipe(
+        take(1),
+        switchMap((result) => result
+          ? this.praiasService.deletePraia(praia?.id!)
+          : EMPTY,
+        ),
+      )
+      .subscribe({
+        next: (praia) => {
+          if (praia) this.customModalService.showSuccessAlert('Praia excluída com sucesso.');
+        },
+        error: () => this.customModalService.showDangerAlert('Erro ao excluir praia. Tente novamente mais tarde.'),
+        complete: () => this.onRefresh(),
+      });
   }
 
 }

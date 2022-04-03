@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 import { EnviarValorService } from '../enviar-valor.service';
 
@@ -20,7 +20,7 @@ export class PocTakeUntilComponent implements OnInit {
 
   unsub$ = new Subject();
 
-  constructor(private enviarValorService: EnviarValorService) {}
+  constructor(private enviarValorService: EnviarValorService) { }
 
   ngOnInit(): void {
     this.enviarValorService.getValor()

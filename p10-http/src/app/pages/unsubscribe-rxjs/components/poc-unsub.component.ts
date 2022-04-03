@@ -1,6 +1,7 @@
-import { tap } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+
+import { Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { EnviarValorService } from '../enviar-valor.service';
 
@@ -24,8 +25,8 @@ export class PocUnsubComponent implements OnInit {
   ngOnInit(): void {
     this.inscricoes?.push(
       this.enviarValorService.getValor()
-      .pipe(tap(v => console.log(this.nome, v)))
-      .subscribe(novoValor => this.valor = novoValor)
+        .pipe(tap(v => console.log(this.nome, v)))
+        .subscribe(novoValor => this.valor = novoValor)
     );
   }
 
