@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Observable, of, pipe, Subject } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
@@ -6,7 +7,6 @@ import { catchError, take } from 'rxjs/operators';
 import { Praia } from '../model/praia';
 import { PraiasService } from '../services/praias.service';
 import { AlertModalService } from '../../shared/services/alert-modal.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'praias-list',
@@ -29,10 +29,9 @@ export class PraiasListComponent implements OnInit {
   }
 
   onRefresh() {
-    this.praias$ = this.praiasService.listPraias()
+    this.praias$ = this.praiasService.loadPraias()
     pipe(
       catchError(error => {
-        console.log(error);
         // this.error$?.next(true);
         this.handleError();
 
@@ -41,12 +40,12 @@ export class PraiasListComponent implements OnInit {
     );
 
     // Com método subscribe utilizando chave e valor
-    this.praiasService.listPraias()
+    this.praiasService.loadPraias()
     .pipe(take(1))
     .subscribe({
-      next: (praias) => console.log(praias),
-      error: (error) => console.log(error),
-      complete: () => console.log('Subscribe completo'),
+      next: (praias) => praias,
+      error: (error) => error,
+      complete: () => 'Subscribe completo',
     })
   }
 

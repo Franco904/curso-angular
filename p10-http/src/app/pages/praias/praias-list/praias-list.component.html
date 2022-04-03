@@ -24,7 +24,7 @@
                     <td>{{ praia.nome }}</td>
                     <td>
                         <button class="btn btn-outline-info mb-1 btn-sm">
-                            <i class="fas fa-info" [routerLink]="[praia.id, 'detalhes']"></i>
+                            <i class="fas fa-info" routerLink="/praias/[praia.id]/detalhes"></i>
                         </button>
                     </td>
                     <td style="text-align: end;">
@@ -44,7 +44,7 @@
 
         <ng-template #loading>
             <div id="loading">
-                <mat-spinner></mat-spinner>
+                <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
             </div>
         </ng-template>
 

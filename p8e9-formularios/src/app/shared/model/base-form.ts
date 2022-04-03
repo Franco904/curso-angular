@@ -55,7 +55,7 @@ export abstract class BaseForm {
   compararObjetos(obj1: any, obj2: any) {
     // Se objeto 1 e objeto 2 existem, compare a semelhança entre eles
     return obj1 && obj2
-    ? (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel)
-    : obj1 === obj2;
+      ? (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel)
+      : obj1 === obj2;
   }
 }

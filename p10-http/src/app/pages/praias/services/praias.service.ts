@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Subject } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, take } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { Praia } from 'src/app/pages/praias/model/praia';
@@ -18,10 +18,14 @@ export class PraiasService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listPraias() {
-    // Retorna praias na API
+  loadPraias() {
     return this.httpClient.get<Praia[]>(this.API)
-      .pipe(delay(2000));
+      .pipe(delay(1000));
+  }
+
+  createPraia(praia: Praia) {
+    return this.httpClient.post<Praia>(this.API, praia)
+      .pipe(take(1));
   }
 
   getMustChangeNavigationBar() {

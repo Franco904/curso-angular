@@ -33,8 +33,14 @@
     {
       "nome": "Itaguaçu",
       "regiao": "Continente",
-      "banho": false,
+      "banho": "n",
       "id": 6
+    },
+    {
+      "nome": "Santinho",
+      "regiao": "Santinho",
+      "banho": "s",
+      "id": 7
     }
   ]
 }
