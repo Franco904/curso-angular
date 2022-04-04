@@ -15,7 +15,7 @@ export class PraiasResolverGuard implements Resolve<Praia> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Praia | Observable<Praia> | Promise<Praia> {
 
-    // Editing
+    // Editing / Details
     if (route.params && route.params['id']) {
       return this.service.getPraiaById(route.params['id']);
     }

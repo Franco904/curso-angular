@@ -23,8 +23,8 @@
                     <td>{{ praia.id }}</td>
                     <td>{{ praia.nome }}</td>
                     <td>
-                        <button class="btn btn-outline-info mb-1 btn-sm">
-                            <i class="fas fa-info"></i>
+                        <button class="btn btn-outline-info mb-1 btn-sm" (click)="onDetailsPraia(praia.id)">
+                            <i class="fas fa-info" style="padding: 0 3px 0;"></i>
                         </button>
                     </td>
                     <td style="text-align: end;">

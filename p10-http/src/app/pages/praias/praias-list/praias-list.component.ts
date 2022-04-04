@@ -32,18 +32,22 @@ export class PraiasListComponent implements OnInit {
 
   onRefresh() {
     this.praias$ = this.praiasService.getAllPraias()
-    pipe(
-      catchError(_ => {
+    pipe(catchError(_ => {
         // this.error$?.next(true);
         this.customModalService.showDangerAlert('Erro ao carregar praias cadastradas. Tente novamente mais tarde.');
 
         return EMPTY;
-      })
+      }),
     );
   }
 
   goToPraiasForm() {
     this.router.navigate(['/praias/new']);
+    this.praiasService.changeNavigationBar();
+  }
+
+  onDetailsPraia(idPraia?: number) {
+    if (idPraia) this.router.navigate(['/praias/detalhes', idPraia]);
     this.praiasService.changeNavigationBar();
   }
 

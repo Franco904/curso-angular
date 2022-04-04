@@ -3,7 +3,7 @@
 @include mat.core();
 
 $p10-http-primary: mat.define-palette(mat.$blue-palette);
-$p10-http-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
+$p10-http-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
 $p10-http-warn: mat.define-palette(mat.$red-palette);
 
 $p10-http-theme: mat.define-light-theme(

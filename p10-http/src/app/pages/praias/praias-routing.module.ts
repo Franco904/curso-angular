@@ -13,7 +13,7 @@ const praiasRoutes: Routes = [
       { path: 'list', component: PraiasListComponent },
       { path: 'new', component: PraiasFormComponent },
       { path: 'edit/:id', component: PraiasFormComponent, resolve: { praia: PraiasResolverGuard } },
-      { path: 'detalhes/:id', component: PraiasDetalhesComponent },
+      { path: 'detalhes/:id', component: PraiasDetalhesComponent, resolve: { praia: PraiasResolverGuard } },
       { path: '', redirectTo: "/praias/list", pathMatch: 'full' }]
   }
 ];

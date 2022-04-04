@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { PraiasDetalhesComponent } from './praias-detalhes/praias-detalhes.component';
@@ -25,6 +26,7 @@ const components = [
     ReactiveFormsModule,
     HttpClientModule,
     PraiasRoutingModule,
+    MatChipsModule,
     MatProgressSpinnerModule,
   ],
 })

@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
-import { delay, take } from 'rxjs/operators';
+import { Inject, Injectable } from '@angular/core';
 
 export class CrudType {
   id?: number;
@@ -14,18 +12,15 @@ export class CrudService<T extends CrudType> {
 
   constructor(
     protected httpClient: HttpClient,
-    private API: string,
+    @Inject(String) private API: string,
   ) { }
 
-
   get(id: number) {
-    return this.httpClient.get<T>(`${this.API}/${id}`)
-      .pipe(take(1));
+    return this.httpClient.get<T>(`${this.API}/${id}`);
   }
 
   getAll() {
-    return this.httpClient.get<T[]>(this.API)
-      .pipe(delay(1000));
+    return this.httpClient.get<T[]>(this.API);
   }
 
   write(instance: T, isEditing: boolean) {
@@ -33,17 +28,14 @@ export class CrudService<T extends CrudType> {
   }
 
   private create(instance: T) {
-    return this.httpClient.post<T>(this.API, instance)
-      .pipe(take(1));
+    return this.httpClient.post<T>(this.API, instance);
   }
 
   private update(instance: T) {
-    return this.httpClient.put<T>(`${this.API}/${instance.id}`, instance)
-      .pipe(take(1));
+    return this.httpClient.put<T>(`${this.API}/${instance.id}`, instance);
   }
 
   delete(id: number) {
-    return this.httpClient.delete<T>(`${this.API}/${id}`)
-      .pipe(take(1));
+    return this.httpClient.delete<T>(`${this.API}/${id}`);
   }
 }
