@@ -24,7 +24,7 @@ export class ModelosService {
           return modelo;
         }
     }
-    return null as any;
+    return null;
   }
 
   constructor() { }

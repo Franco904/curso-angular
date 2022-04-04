@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Livro } from '../model/livro';
+
 @Component({
   selector: 'exemplos-pipes',
   templateUrl: './exemplos-pipes.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExemplosPipesComponent implements OnInit {
 
-  livro: any = {
+  livro: Livro = {
     titulo: 'deep learning',
     autor: 'Ian Goodfellow',
     editora: 'The Mit Press',
@@ -19,7 +21,6 @@ export class ExemplosPipesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

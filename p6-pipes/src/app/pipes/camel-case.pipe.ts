@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CamelCasePipe implements PipeTransform {
 
   // Override do método da interface onde será especificado o comportamento do pipe.
-  transform(value: any, args?: any): any { 
+  transform(value: string) {
     let valores = value.split(' '); // Divide a string em mais um bloco quando encontrar um espaço em branco.
     let resultado = [];
 

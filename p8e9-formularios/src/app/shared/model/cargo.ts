@@ -1,5 +1,5 @@
 export class Cargo {
-    nome?:  string;
+    nome?: string;
     nivel?: string;
-    desc?:  string;
+    desc?: string;
 }

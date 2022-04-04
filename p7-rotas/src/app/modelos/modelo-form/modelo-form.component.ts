@@ -1,7 +1,9 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
+import { Subscription } from 'rxjs';
+
+import { Modelo } from '../modelo';
 import { ModelosService } from '../modelos.service';
 import { IFormCanDeactivate } from './../../guards/iform-candeactivate';
 
@@ -11,9 +13,8 @@ import { IFormCanDeactivate } from './../../guards/iform-candeactivate';
   styleUrls: ['./modelo-form.component.css']
 })
 export class ModeloFormComponent implements OnInit, IFormCanDeactivate {
-
-  id: any;
-  modelo: any;
+  id?: number;
+  modelo?: Modelo = new Modelo();
 
   formMudou: boolean = false;
 
@@ -22,7 +23,7 @@ export class ModeloFormComponent implements OnInit, IFormCanDeactivate {
   constructor(
     private route: ActivatedRoute,
     private modelosService: ModelosService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // *Para receber dados de ModeloDetalhe, sem precisar usar instância do serviço novamente
@@ -30,9 +31,9 @@ export class ModeloFormComponent implements OnInit, IFormCanDeactivate {
     // this.modelo = history.state.data;
 
     this.inscricao = this.route.params.subscribe(
-      (params: any) => {
+      (params) => {
         this.id = params['id']
-        this.modelo = this.modelosService.getModelo(this.id)
+        this.modelo = this.modelosService.getModelo(this.id!)!
       }
     );
   }
@@ -47,7 +48,7 @@ export class ModeloFormComponent implements OnInit, IFormCanDeactivate {
 
   podeMudarRota() {
     if (this.formMudou) {
-        return confirm('Deseja sair da página atual? As alterações do formulário podem ser perdidas.');
+      return confirm('Deseja sair da página atual? As alterações do formulário podem ser perdidas.');
     }
     return true;
   }

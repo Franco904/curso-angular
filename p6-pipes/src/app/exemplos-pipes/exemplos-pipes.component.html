@@ -4,7 +4,7 @@
 
         <br><hr><br>
         <ul style="text-align: justify; margin-left: 150px;">
-            <li><strong>Título: </strong>{{ livro.titulo | camelCase }}</li>
+            <li><strong>Título: </strong>{{ livro.titulo! | camelCase }}</li>
             <li><strong>Autor: </strong>{{ livro.autor }}</li>
             <li><strong>Editora: </strong>{{ livro.editora }}</li>
             <li><strong>Avaliação: </strong>⭐{{ livro.avaliacao | number: '1.1-2' }}</li>

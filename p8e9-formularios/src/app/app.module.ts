@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { TemplateFormModule } from './template-form/template-form.module';
-import { DataFormModule } from './data-form/data-form.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PraiasComponent } from './pages/praias/praias/praias.component';
-import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import { DataFormModule } from './data-form/data-form.module';
+import { TemplateFormModule } from './template-form/template-form.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PraiasComponent,
-    ConfirmModalComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     TemplateFormModule,

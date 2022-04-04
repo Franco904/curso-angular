@@ -11,7 +11,7 @@ export class CriarCursosComponent implements OnInit {
 
   cursos: string[] = [];
 
-  constructor(private cursosService: CursosService) { 
+  constructor(private cursosService: CursosService) {
     this.cursos = cursosService.getCursos();
   }
 
@@ -20,13 +20,9 @@ export class CriarCursosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cursosService.emitirCursoCriado.subscribe(   
+    this.cursosService.emitirCursoCriado.subscribe(
       // Arrow function
       curso => console.log(curso)
-      
-      // function (curso) {
-      //     console.log(curso);
-      // }
     );
   }
 

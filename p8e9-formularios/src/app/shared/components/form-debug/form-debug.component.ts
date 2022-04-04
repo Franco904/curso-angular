@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'form-debug',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FormDebugComponent implements OnInit {
 
-  @Input() form: any;
+  @Input() form!: NgForm | FormGroup;
 
   constructor() { }
 

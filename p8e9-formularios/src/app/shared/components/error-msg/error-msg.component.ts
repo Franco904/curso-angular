@@ -23,7 +23,7 @@ export class ErrorMsgComponent implements OnInit {
     for (const property in this.control?.errors) {
       if (this.control?.errors.hasOwnProperty(property) && this.control.touched) {
 
-          return FormValidations.getErrors(property, this.control.errors[property])
+        return FormValidations.getErrors(property, this.control.errors[property])
       }
     }
 

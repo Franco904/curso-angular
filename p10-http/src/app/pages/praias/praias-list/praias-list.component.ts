@@ -31,7 +31,7 @@ export class PraiasListComponent implements OnInit {
   }
 
   onRefresh() {
-    this.praias$ = this.praiasService.loadPraias()
+    this.praias$ = this.praiasService.getAllPraias()
     pipe(
       catchError(_ => {
         // this.error$?.next(true);

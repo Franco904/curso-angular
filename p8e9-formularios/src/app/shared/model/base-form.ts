@@ -1,4 +1,6 @@
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+
+import { Cargo } from './cargo';
 
 export abstract class BaseForm {
 
@@ -15,7 +17,7 @@ export abstract class BaseForm {
     else {
       console.log('O formulário é inválido.')
       this.verificaValidacoes(this.formulario);
-    } 
+    }
   }
 
   verificaValidacoes(formGroup: FormGroup | FormArray) {
@@ -30,7 +32,7 @@ export abstract class BaseForm {
           // Recursão
           this.verificaValidacoes(controle)
         }
-    });
+      });
   }
 
   resetForm() {
@@ -42,7 +44,7 @@ export abstract class BaseForm {
     return <FormControl>this.formulario.get(campo);
   }
 
-  verificaInvalidTouched(campo: any) {
+  verificaInvalidTouched(campo: FormControl) {
     return campo.invalid && campo.touched;
   }
 
@@ -52,7 +54,7 @@ export abstract class BaseForm {
     return controle!.status === 'PENDING';
   }
 
-  compararObjetos(obj1: any, obj2: any) {
+  compararCargos(obj1: Cargo, obj2: Cargo) {
     // Se objeto 1 e objeto 2 existem, compare a semelhança entre eles
     return obj1 && obj2
       ? (obj1.nome === obj2.nome && obj1.nivel === obj2.nivel)

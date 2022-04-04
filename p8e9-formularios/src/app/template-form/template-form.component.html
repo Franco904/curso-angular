@@ -12,9 +12,8 @@
             <label for="nome" style="margin-bottom: 5px;"><strong>Nome</strong></label>
         </div>
         <div class="col-sm-12">
-            <input type="text" 
-            class="form-control" id="nome" placeholder="Seu nome" 
-            name="nome" [(ngModel)]="usuario.nome" required #nome="ngModel">
+            <input type="text" class="form-control" id="nome" placeholder="Seu nome" name="nome"
+                [(ngModel)]="usuario.nome" required #nome="ngModel">
 
             <campo-erro [mostrarErro]="verificaInvalidTouched(nome)" msgErro="Este campo é obrigatório"></campo-erro>
         </div>
@@ -22,12 +21,11 @@
     <!-- E-mail -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="email" style="margin: 10px 0 5px 0;"><strong>E-mail</strong></label>
+            <label for="email" style="margin: 10px 0 5px;"><strong>E-mail</strong></label>
         </div>
         <div class="col-sm-12">
-            <input type="text" 
-            class="form-control" id="email" placeholder="Seu e-mail" 
-            name="email" [(ngModel)]="usuario.email" required email #email="ngModel">
+            <input type="text" class="form-control" id="email" placeholder="Seu e-mail" name="email"
+                [(ngModel)]="usuario.email" required email #email="ngModel">
 
             <campo-erro [mostrarErro]="verificaInvalidTouched(email)" msgErro="Este campo é obrigatório"></campo-erro>
         </div>
@@ -36,84 +34,71 @@
         <!-- CEP, Número e Complemento -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-3">
-                <label for="cep" style="margin: 10px 0 5px 0;"><strong>CEP</strong></label>
-                <input type="text" 
-                class="form-control" id="cep" 
-                name="cep" ngModel required #cep="ngModel"
-                (blur)="consultaCep($event, f)">
+                <label for="cep" style="margin: 10px 0 5px;"><strong>CEP</strong></label>
+                <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel"
+                    (blur)="consultaCep($event, f)">
 
                 <campo-erro [mostrarErro]="verificaInvalidTouched(cep)" msgErro="Este campo é obrigatório"></campo-erro>
             </div>
             <div class="col-sm-3">
-                <label for="numero" style="margin: 10px 0 5px 0;"><strong>Número</strong></label>
-                <input type="number" 
-                class="form-control" id="numero" 
-                name="numero" ngModel required #numero="ngModel">
+                <label for="numero" style="margin: 10px 0 5px;"><strong>Número</strong></label>
+                <input type="number" class="form-control" id="numero" name="numero" ngModel required #numero="ngModel">
 
-                <campo-erro [mostrarErro]="verificaInvalidTouched(numero)"
-                msgErro="Este campo é obrigatório"></campo-erro>
+                <campo-erro [mostrarErro]="verificaInvalidTouched(numero)" msgErro="Este campo é obrigatório">
+                </campo-erro>
             </div>
             <div class="col-sm-6">
-                <label for="complemento" style="margin: 10px 0 5px 0;"><strong>Complemento</strong></label>
-                <input type="text" 
-                class="form-control" id="complemento"
-                name="complemento" ngModel #complemento="ngModel">
+                <label for="complemento" style="margin: 10px 0 5px;"><strong>Complemento</strong></label>
+                <input type="text" class="form-control" id="complemento" name="complemento" ngModel
+                    #complemento="ngModel">
             </div>
         </div>
         <!-- Rua -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-12">
-                <label for="rua" style="margin: 10px 0 5px 0;"><strong>Rua</strong></label>
+                <label for="rua" style="margin: 10px 0 5px;"><strong>Rua</strong></label>
             </div>
             <div class="col-sm-12">
-                <input type="text" 
-                class="form-control" id="rua"
-                name="rua" ngModel required #rua="ngModel">
+                <input type="text" class="form-control" id="rua" name="rua" ngModel required #rua="ngModel">
 
-                <campo-erro [mostrarErro]="verificaInvalidTouched(rua)"
-                msgErro="Este campo é obrigatório"></campo-erro>
+                <campo-erro [mostrarErro]="verificaInvalidTouched(rua)" msgErro="Este campo é obrigatório"></campo-erro>
             </div>
         </div>
         <!-- Bairro, Cidade, Estado -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-5">
-                <label for="bairro" style="margin: 10px 0 5px 0;"><strong>Bairro</strong></label>
-                <input type="text" 
-                class="form-control" id="bairro" 
-                name="bairro" ngModel required #bairro="ngModel">
-        
-                <campo-erro [mostrarErro]="verificaInvalidTouched(bairro)"
-                msgErro="Este campo é obrigatório"></campo-erro>
+                <label for="bairro" style="margin: 10px 0 5px;"><strong>Bairro</strong></label>
+                <input type="text" class="form-control" id="bairro" name="bairro" ngModel required #bairro="ngModel">
+
+                <campo-erro [mostrarErro]="verificaInvalidTouched(bairro)" msgErro="Este campo é obrigatório">
+                </campo-erro>
             </div>
             <div class="col-sm-4">
-                <label for="cidade" style="margin: 10px 0 5px 0;"><strong>Cidade</strong></label>
-                <input type="text" 
-                class="form-control" id="cidade" 
-                name="cidade" ngModel required #cidade="ngModel">
-        
-                <campo-erro [mostrarErro]="verificaInvalidTouched(cidade)"
-                msgErro="Este campo é obrigatório"></campo-erro>
+                <label for="cidade" style="margin: 10px 0 5px;"><strong>Cidade</strong></label>
+                <input type="text" class="form-control" id="cidade" name="cidade" ngModel required #cidade="ngModel">
+
+                <campo-erro [mostrarErro]="verificaInvalidTouched(cidade)" msgErro="Este campo é obrigatório">
+                </campo-erro>
             </div>
             <div class="col-sm-3">
-                <label for="estado" style="margin: 10px 0 5px 0;"><strong>Estado</strong></label>
-                <input type="text"
-                class="form-control" id="estado"
-                name="estado" ngModel required #estado="ngModel">
-        
-                <campo-erro [mostrarErro]="verificaInvalidTouched(estado)"
-                msgErro="Este campo é obrigatório"></campo-erro>
+                <label for="estado" style="margin: 10px 0 5px;"><strong>Estado</strong></label>
+                <input type="text" class="form-control" id="estado" name="estado" ngModel required #estado="ngModel">
+
+                <campo-erro [mostrarErro]="verificaInvalidTouched(estado)" msgErro="Este campo é obrigatório">
+                </campo-erro>
             </div>
         </div>
     </div>
     <!-- Botão -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <button type="submit" class="btn btn-primary" 
-            style="margin-top: 20px;" [disabled]="f.invalid">Registrar</button>
-        </div>       
-    </div> 
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px;"
+                [disabled]="f.invalid">Registrar</button>
+        </div>
+    </div>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <form-debug [form]="f"></form-debug>
 

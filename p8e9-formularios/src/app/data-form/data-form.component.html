@@ -3,7 +3,7 @@
 <br>
 
 <!-- Form organizado em colunas dentro de linhas conforme o padrão Grid do Bootstrap -->
-<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
     <!-- row: Linha, col: Coluna -->
 
@@ -12,15 +12,13 @@
         formControlName="nome" id="nome" label="Nome" 
         placeholder="Seu nome" [control]="getFormControl('nome')">
     </input-field> -->
-    
+
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
             <label for="nome" style="margin-bottom: 5px;"><strong>Nome</strong></label>
         </div>
         <div class="col-sm-12">
-            <input type="text" 
-            class="form-control" id="nome" placeholder="Seu nome" 
-            formControlName="nome">
+            <input type="text" class="form-control" id="nome" placeholder="Seu nome" formControlName="nome">
         </div>
 
         <error-msg [control]="getFormControl('nome')"></error-msg>
@@ -29,25 +27,22 @@
     <!-- Emails -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-6">
-            <label for="email" style="margin: 10px 0 5px 0;"><strong>Email</strong></label>
+            <label for="email" style="margin: 10px 0 5px;"><strong>Email</strong></label>
         </div>
         <div class="col-sm-6">
-            <label for="email" style="margin: 10px 0 5px 0;"><strong>Confirmar Email</strong></label>
-        </div>       
+            <label for="email" style="margin: 10px 0 5px;"><strong>Confirmar Email</strong></label>
+        </div>
     </div>
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-6">
-            <input type="text" 
-            class="form-control" id="email" placeholder="Seu email" 
-            formControlName="email">
+            <input type="text" class="form-control" id="email" placeholder="Seu email" formControlName="email">
 
             <error-msg [control]="getFormControl('email')"></error-msg>
             <legenda [mostrarLegenda]="verificaPending('email')" msgLegenda="Validando email.."></legenda>
         </div>
         <div class="col-sm-6">
-            <input type="text" 
-            class="form-control" id="confirmarEmail" placeholder="Seu email novamente" 
-            formControlName="confirmarEmail">
+            <input type="text" class="form-control" id="confirmarEmail" placeholder="Seu email novamente"
+                formControlName="confirmarEmail">
 
             <error-msg [control]="getFormControl('confirmarEmail')"></error-msg>
         </div>
@@ -55,12 +50,10 @@
     <!-- Senha -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="senha" style="margin: 10px 0 5px 0;"><strong>Senha</strong></label>
+            <label for="senha" style="margin: 10px 0 5px;"><strong>Senha</strong></label>
         </div>
         <div class="col-sm-12">
-            <input type="password" 
-            class="form-control" id="senha" placeholder="Sua senha" 
-            formControlName="senha">
+            <input type="password" class="form-control" id="senha" placeholder="Sua senha" formControlName="senha">
         </div>
 
         <error-msg [control]="getFormControl('senha')"></error-msg>
@@ -69,37 +62,30 @@
         <!-- CEP, Número e Complemento -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-3">
-                <label for="cep" style="margin: 10px 0 5px 0;"><strong>CEP</strong></label>
-                <input type="text" 
-                class="form-control" id="cep" placeholder="XXXXX-XXX"
-                formControlName="cep" (blur)="consultaCep()">
+                <label for="cep" style="margin: 10px 0 5px;"><strong>CEP</strong></label>
+                <input type="text" class="form-control" id="cep" placeholder="XXXXX-XXX" formControlName="cep"
+                    (blur)="consultaCep()">
 
                 <error-msg [control]="getFormControl('endereco.cep')"></error-msg>
             </div>
             <div class="col-sm-3">
-                <label for="numero" style="margin: 10px 0 5px 0;"><strong>Número</strong></label>
-                <input type="number" 
-                class="form-control" id="numero" 
-                formControlName="numero">
+                <label for="numero" style="margin: 10px 0 5px;"><strong>Número</strong></label>
+                <input type="number" class="form-control" id="numero" formControlName="numero">
 
                 <error-msg [control]="getFormControl('endereco.numero')"></error-msg>
             </div>
             <div class="col-sm-6">
-                <label for="complemento" style="margin: 10px 0 5px 0;"><strong>Complemento</strong></label>
-                <input type="text" 
-                class="form-control" id="complemento"
-                formControlName="complemento">
+                <label for="complemento" style="margin: 10px 0 5px;"><strong>Complemento</strong></label>
+                <input type="text" class="form-control" id="complemento" formControlName="complemento">
             </div>
         </div>
         <!-- Rua -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-12">
-                <label for="rua" style="margin: 10px 0 5px 0;"><strong>Rua</strong></label>
+                <label for="rua" style="margin: 10px 0 5px;"><strong>Rua</strong></label>
             </div>
             <div class="col-sm-12">
-                <input type="text" 
-                class="form-control" id="rua"
-                formControlName="rua">
+                <input type="text" class="form-control" id="rua" formControlName="rua">
 
                 <error-msg [control]="getFormControl('endereco.rua')"></error-msg>
             </div>
@@ -107,44 +93,42 @@
         <!-- Bairro, Cidade, Estado -->
         <div class="row" style="margin-left: 10px;">
             <div class="col-sm-4">
-                <label for="bairro" style="margin: 10px 0 5px 0;"><strong>Bairro</strong></label>
-                <input type="text" 
-                class="form-control" id="bairro" 
-                formControlName="bairro">
-        
+                <label for="bairro" style="margin: 10px 0 5px;"><strong>Bairro</strong></label>
+                <input type="text" class="form-control" id="bairro" formControlName="bairro">
+
                 <error-msg [control]="getFormControl('endereco.bairro')"></error-msg>
             </div>
             <div class="col-sm-4">
-                <label for="cidade" style="margin: 10px 0 5px 0;"><strong>Cidade</strong></label>
+                <label for="cidade" style="margin: 10px 0 5px;"><strong>Cidade</strong></label>
                 <!-- Iterando lista de estados com os dados do json - http -->
                 <select class="form-control" id="cidade" formControlName="cidade"
-                [class.desabilitado] = "!estadoSelecionado">
+                    [class.desabilitado]="!estadoSelecionado">
                     <option *ngFor="let cidade of cidades" [value]="cidade.nome">
                         {{ cidade.nome }}
                     </option>
                 </select>
-        
+
                 <error-msg [control]="getFormControl('endereco.cidade')"></error-msg>
             </div>
             <div class="col-sm-4">
-                <label for="estado" style="margin: 10px 0 5px 0;"><strong>Estado</strong></label>
+                <label for="estado" style="margin: 10px 0 5px;"><strong>Estado</strong></label>
                 <!-- Iterando lista de estados com os dados do json - http -->
                 <select class="form-control" id="estado" formControlName="estado">
                     <option *ngFor="let estado of estados" [value]="estado.sigla">
                         {{ estado.nome }}
                     </option>
                 </select>
-        
+
                 <error-msg [control]="getFormControl('endereco.estado')"></error-msg>
             </div>
-        </div>     
+        </div>
     </div>
     <!-- Cargo -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="cargo" style="margin: 10px 0 5px 0;"><strong>Cargo</strong></label>
+            <label for="cargo" style="margin: 10px 0 5px;"><strong>Cargo</strong></label>
             <!-- compareWith faz o Angular escutar mudanças de objeto no select -->
-            <select class="form-control" id="cargo" formControlName="cargo" [compareWith]="compararObjetos">
+            <select class="form-control" id="cargo" formControlName="cargo" [compareWith]="compararCargos">
                 <!-- ngValue notifica o Angular (dinamicamente) de que a option mudou -->
                 <option *ngFor="let cargo of cargos" [ngValue]="cargo">{{ cargo.nome }}</option>
             </select>
@@ -153,8 +137,8 @@
     <!-- Tecnologias -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="tecnologias" style="margin: 10px 0 5px 0;"><strong>Tecnologias</strong></label>
-            <select class="form-control" id="tecnologias" formControlName="tecnologias" multiple>     
+            <label for="tecnologias" style="margin: 10px 0 5px;"><strong>Tecnologias</strong></label>
+            <select class="form-control" id="tecnologias" formControlName="tecnologias" multiple>
                 <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome">{{ tecnologia.desc }}</option>
             </select>
         </div>
@@ -162,50 +146,49 @@
     <!-- Newsletter -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="newsletter" style="margin: 10px 0 5px 0;">
+            <label for="newsletter" style="margin: 10px 0 5px;">
                 <strong>Newsletter</strong>
             </label>
             <div id="newsletter" class="col-sm-6">
                 <label class="radio-inline" *ngFor="let item of newsletterOps" style="margin-right: 15px;">
                     <input type="radio" [value]="item.valor" formControlName="newsletter">
-                     {{ item.desc }}
+                    {{ item.desc }}
                 </label>
-            </div>              
+            </div>
         </div>
     </div>
     <!-- Termos -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="termos" style="margin: 10px 0 5px 0;">
+            <label for="termos" style="margin: 10px 0 5px;">
                 <strong>Termos</strong>
             </label>
             <div class="checkbox">
                 <label class="checkbox-inline" style="margin-right: 15px;">
                     <input type="checkbox" formControlName="termos">
-                     Li e aceito os termos de uso
+                    Li e aceito os termos de uso
                 </label>
                 <error-msg [control]="getFormControl('termos')"></error-msg>
-            </div>              
+            </div>
         </div>
     </div>
     <!-- Frameworks -->
     <div class="row" style="margin-left: 10px;">
         <div class="col-sm-12">
-            <label for="frameworks" style="margin: 10px 0 5px 0;">
+            <label for="frameworks" style="margin: 10px 0 5px;">
                 <strong>Frameworks</strong>
             </label>
             <!-- FormArray simples com múltiplos checkboxes -->
             <div class="checkbox" formArrayName="frameworks" id="checkFrameworks">
-                <label class="checkbox-inline" 
-                *ngFor="let item of formFrameworks['controls']; index as i" 
-                style="margin-right: 15px;">
+                <label class="checkbox-inline" *ngFor="let item of formFrameworks['controls']; index as i"
+                    style="margin-right: 15px;">
 
                     <!-- Vincula cada item do FormArray ao seu índice -->
                     <input type="checkbox" [formControlName]="i"> {{ frameworks[i] }}
 
                 </label>
                 <error-msg [control]="getFormControl('frameworks')"></error-msg>
-            </div>             
+            </div>
         </div>
     </div>
 
@@ -214,10 +197,11 @@
         <div class="col-sm-12">
             <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Registrar</button>
             <button class="btn btn-light" (click)="resetForm()" style="margin: 20px 0 0 10px;">Cancelar</button>
-        </div>       
+        </div>
     </div>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <form-debug [form]="formulario"></form-debug>
 </form>
