@@ -18,8 +18,7 @@ export class ConfirmModalComponent implements OnInit {
 
   constructor(private bsModalRef: BsModalRef) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onConfirm() {
     this.resolveAndClose(true);

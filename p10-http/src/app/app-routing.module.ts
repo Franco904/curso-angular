@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { UnsubscribePocComponent } from './pages/unsubscribe-rxjs/unsubscribe-poc/unsubscribe-poc.component';
+import { UploadFileComponent } from './pages/upload-file/upload-file.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,7 +13,8 @@ const appRoutes: Routes = [
     loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule)
   },
   { path: 'rxjs-poc', component: UnsubscribePocComponent },
-  { path: '', redirectTo: "/home", pathMatch: 'full' },
+  { path: 'upload', component: UploadFileComponent },
+  { path: '', redirectTo: "/upload", pathMatch: 'full' }, // Mudar para /home depois
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 

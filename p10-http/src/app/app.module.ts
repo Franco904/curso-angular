@@ -11,12 +11,14 @@ import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagi
 import { PraiasModule } from './pages/praias/praias.module';
 import { SharedModule } from './pages/shared/shared.module';
 import { UnsubscribePocModule } from './pages/unsubscribe-rxjs/unsubscribe-rxjs.module';
+import { UploadFileComponent } from './pages/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PaginaNaoEncontradaComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,
