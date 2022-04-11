@@ -1,0 +1,20 @@
+* {
+    vertical-align: middle;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.fa-info-circle {
+    cursor: pointer;
+    color: #15aabf;
+}
+#loading {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

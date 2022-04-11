@@ -12,7 +12,7 @@ export class CursosComponent implements OnInit {
   cursos: string[] = [];
 
   // 'private' faz com que cursosService seja um atributo da classe CursosComponent
-  constructor(private cursosService: CursosService) { 
+  constructor(private cursosService: CursosService) {
     this.cursos = cursosService.getCursos();
   }
 

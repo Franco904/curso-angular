@@ -35,6 +35,12 @@
       "regiao": "Continente",
       "banho": false,
       "id": 6
+    },
+    {
+      "id": 8,
+      "nome": "Cacupé",
+      "regiao": "Cacupé",
+      "banho": false
     }
   ]
 }

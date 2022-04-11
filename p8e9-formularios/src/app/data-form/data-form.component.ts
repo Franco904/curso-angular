@@ -1,21 +1,22 @@
-import { FormValidations } from '../shared/form-validations';
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { EMPTY, Observable } from 'rxjs';
-import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
+import { FormValidations } from '../shared/form-validations';
 import { BaseForm } from '../shared/model/base-form';
-import { DropdownService } from '../shared/services/dropdown.service';
-import { ConsultaCepService } from '../shared/services/consulta-cep.service';
-import { VerificaEmailService } from './services/verifica-email.service';
-import { Cidade } from '../shared/model/cidade';
-import { Estado } from '../shared/model/estado';
 import { Cargo } from '../shared/model/cargo';
-import { Tecnologia } from './../shared/model/tecnologia';
+import { Cidade } from '../shared/model/cidade';
+import { Endereco } from '../shared/model/endereco';
+import { Estado } from '../shared/model/estado';
 import { Radio } from '../shared/model/radio';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
+import { DropdownService } from '../shared/services/dropdown.service';
+import { Tecnologia } from './../shared/model/tecnologia';
+import { VerificaEmailService } from './services/verifica-email.service';
 
 @Component({
   selector: 'app-data-form',
@@ -43,55 +44,54 @@ export class DataFormComponent extends BaseForm implements OnInit {
     private dropdownService: DropdownService,
     private cepService: ConsultaCepService,
     private verificaEmailService: VerificaEmailService
-  ) { 
+  ) {
     super(); // Chama o construtor da classe mãe
   }
 
   ngOnInit(): void {
-      // this.estados = this.dropdownService.getEstados();
+    // this.estados = this.dropdownService.getEstados();
 
-      this.dropdownService.getEstados().subscribe(
-        estados => this.estados = estados
-      );
+    this.dropdownService.getEstados().subscribe(
+      estados => this.estados = estados
+    );
 
-      // Dropdown com objeto
-      this.cargos = this.dropdownService.getCargos();
+    // Dropdown com objeto
+    this.cargos = this.dropdownService.getCargos();
 
-      // Dropdown múltiplo
-      this.tecnologias = this.dropdownService.getTecnologias();
+    // Dropdown múltiplo
+    this.tecnologias = this.dropdownService.getTecnologias();
 
-      // Radio buttons
-      this.newsletterOps = this.dropdownService.getNewsletter();
-      // this.seletors = this.dropdownService.getSelectors();
+    // Radio buttons
+    this.newsletterOps = this.dropdownService.getNewsletter();
+    // this.seletors = this.dropdownService.getSelectors();
 
-      // Cria o formulário assim que inicializa o componente
-      this.loadForm();
+    // Cria o formulário assim que inicializa o componente
+    this.loadForm();
 
-      // Permite escutar o estado do formulário
-      this.formulario.get('endereco.cep')?.statusChanges
+    // Permite escutar o estado do formulário
+    this.formulario.get('endereco.cep')?.statusChanges
       .pipe(
         distinctUntilChanged(),
-        // tap(value => console.log('Status do email: ', value)),
         switchMap(status => status === 'VALID'
-        ? this.cepService.consultaCep(this.formulario.get('endereco.cep')?.value)
-        : EMPTY
+          ? this.cepService.consultaCep(this.formulario.get('endereco.cep')?.value)
+          : EMPTY
         )
       )
       .subscribe(dados => dados ? this.populateDadosEndereco(dados) : {});
 
-      // Escuta mudanças no select de estados para popular as cidades
-      this.formulario.get('endereco.estado')?.valueChanges
+    // Escuta mudanças no select de estados para popular as cidades
+    this.formulario.get('endereco.estado')?.valueChanges
       .pipe(
-        // tap(estado => console.log('Novo estado: ', estado)),
         map(estado => this.estados.filter(e => e.sigla === estado)), // Lista de 1 estado
         map(estados => estados && estados.length > 0 ? estados[0].id : EMPTY),
-        switchMap((idEstado: any) => this.dropdownService.getCidades(idEstado)),
-        // tap(console.log)
+        switchMap((idEstado: number | Observable<never> | undefined) => {
+          return this.dropdownService.getCidades(idEstado as number);
+        }),
       )
       .subscribe(cidades => this.cidades = cidades);
 
-      // [Franco] Acompanha o status do select de estados para habilitar o de cidades
-      this.formulario.get('endereco.estado')?.statusChanges
+    // [Franco] Acompanha o status do select de estados para habilitar o de cidades
+    this.formulario.get('endereco.estado')?.statusChanges
       .subscribe((status) => status === 'VALID' ? this.estadoSelecionado = true : null);
   }
 
@@ -99,8 +99,8 @@ export class DataFormComponent extends BaseForm implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       email: [
-        null, 
-        [Validators.required, Validators.email], 
+        null,
+        [Validators.required, Validators.email],
         this.validateEmailAsync.bind(this)
         // Referência ao próprio componente para evitar erros
       ],
@@ -128,7 +128,7 @@ export class DataFormComponent extends BaseForm implements OnInit {
 
   validateEmailAsync(formControl: FormControl) {
     return this.verificaEmailService.verificarEmail(formControl.value)
-        .pipe(map(emailExiste => emailExiste ? { emailExistente: true } : null));
+      .pipe(map(emailExiste => emailExiste ? { emailExistente: true } : null));
   }
 
   buildFrameworks() {
@@ -152,8 +152,8 @@ export class DataFormComponent extends BaseForm implements OnInit {
     // Atribui para cada item do FormArray frameworks o nome dos selecionados (this.frameworks[i]) ou null
     valueSubmit = Object.assign(valueSubmit, {
       frameworks: valueSubmit.frameworks
-      .map((valor: boolean, i: number) => valor ? this.frameworks[i] : null)
-      .filter((valor: any) => valor !== null)
+        .map((valor: boolean, i: number) => valor ? this.frameworks[i] : null)
+        .filter((valor: string | null) => valor !== null)
     });
 
     // Enviando informações do formulário ao servidor (por JSON)
@@ -161,14 +161,14 @@ export class DataFormComponent extends BaseForm implements OnInit {
       .post('https://httpbin.org/post', JSON.stringify(valueSubmit))
       .subscribe(dados => {
         console.log(dados)
-  
+
         // Reseta o formulário
         super.resetForm();
         // Mudança de rota
         this.router.navigate(['/submetido']);
       },
-      (error: any) => alert('Ops.. Ocorreu um erro: \n' + error),
-      (() => console.log('Fim do subscribe'))
+        (error) => alert('Ops.. Ocorreu um erro: \n' + error),
+        (() => console.log('Fim do subscribe'))
       );
   }
 
@@ -187,15 +187,15 @@ export class DataFormComponent extends BaseForm implements OnInit {
 
   }
 
-  populateDadosEndereco(dados: any) {
+  populateDadosEndereco(dados: Endereco) {
     this.formulario.patchValue({
       endereco: {
-          cep: dados.cep,
-          complemento: dados.complemento,
-          rua: dados.logradouro,
-          bairro: dados.bairro,
-          cidade: dados.localidade,
-          estado: dados.uf
+        cep: dados.cep,
+        complemento: dados.complemento,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
       }
     });
   }
@@ -203,12 +203,12 @@ export class DataFormComponent extends BaseForm implements OnInit {
   limparCamposForm() {
     this.formulario.patchValue({
       endereco: {
-          cep: null,
-          complemento: null,
-          rua: null,
-          bairro: null,
-          cidade: null,
-          estado: null
+        cep: null,
+        complemento: null,
+        rua: null,
+        bairro: null,
+        cidade: null,
+        estado: null
       }
     });
   }

@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
 import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
-import { UnsubscribePocComponent } from './pages/unsubscribe-rxjs/unsubscribe-poc/unsubscribe-poc.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'praias',
-    loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule) },
-  { path: 'rxjs-poc', component: UnsubscribePocComponent },
+  { path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
+  },
+  {
+    path: 'praias',
+    loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule)
+  },
+  { 
+    path: 'upload',
+    loadChildren: () => import('./pages/upload-file/upload-file.module').then(module => module.UploadFileModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then(module => module.SearchModule)
+  },
   { path: '', redirectTo: "/home", pathMatch: 'full' },
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
   })],
   exports: [RouterModule]
 })

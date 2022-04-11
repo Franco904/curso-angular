@@ -1,6 +1,7 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Subscription } from 'rxjs';
 
 import { AuthService } from 'src/app/login/auth.service';
 import { Modelo } from '../modelo';
@@ -11,7 +12,6 @@ import { Modelo } from '../modelo';
   styleUrls: ['./modelo-detalhe.component.css']
 })
 export class ModeloDetalheComponent implements OnInit {
-
   modelo: Modelo = new Modelo();
   desenvolvedor: boolean = true;
 
@@ -26,7 +26,7 @@ export class ModeloDetalheComponent implements OnInit {
     private router: Router,
     // private modelosService: ModelosService,
     private authService: AuthService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     // (!) O modelo é carregado pela guarda Resolve

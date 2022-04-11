@@ -1,14 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { FormDebugComponent } from './components/form-debug/form-debug.component';
-import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
 import { CampoErroComponent } from './components/campo-erro/campo-erro.component';
 import { CampoLegendaComponent } from './components/campo-legenda/campo-legenda.component';
+import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
+import { FormDebugComponent } from './components/form-debug/form-debug.component';
 import { FormularioSubmetidoComponent } from './components/formulario-submetido/formulario-submetido.component';
-import { InputFieldComponent } from './components/input-field/input-field.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { InputFieldComponent } from './components/input-field/input-field.compon
     CampoErroComponent,
     CampoLegendaComponent,
     FormularioSubmetidoComponent,
-    InputFieldComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +28,6 @@ import { InputFieldComponent } from './components/input-field/input-field.compon
     CampoErroComponent,
     CampoLegendaComponent,
     FormularioSubmetidoComponent,
-    InputFieldComponent
   ]
 })
 export class SharedModule { }

@@ -1,23 +1,47 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
-import { delay } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { delay, take } from 'rxjs/operators';
 
-import { environment } from './../../../../../../p10-http/src/environments/environment';
-import { Praia } from '../model/praia';
+import { Praia } from 'src/app/pages/praias/model/praia';
+import { environment } from 'src/environments/environment';
+import { CrudService } from '../../shared/services/crud.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PraiasService {
+export class PraiasService extends CrudService<Praia> {
+  private defaultNavigationBar = true;
+  private mustChangeNavigationBar$ = new Subject<boolean>();
 
-  private readonly API = `${environment.API}praias`;
-
-  constructor(private httpClient: HttpClient) { }
-
-  listarPraias() {
-    // Retorna praias na API
-    return this.httpClient.get<Praia[]>(this.API)
-      .pipe(delay(3000));
+  constructor(protected httpClient: HttpClient) {
+    super(httpClient, `${environment.API}praias`);
   }
+
+  getPraiaById(idPraia: number) {
+    return this.get(idPraia).pipe(take(1));
+  }
+
+  getAllPraias() {
+    return this.getAll().pipe(delay(500));
+  }
+
+  writePraia(praia: Praia, isEditing: boolean) {
+    return this.write(praia, isEditing).pipe(take(1));
+  }
+
+  deletePraia(idPraia: number) {
+    return this.delete(idPraia).pipe(take(1));
+  }
+
+  getMustChangeNavigationBar() {
+    return this.mustChangeNavigationBar$.asObservable();
+  }
+
+  changeNavigationBar() {
+    this.defaultNavigationBar = !this.defaultNavigationBar;
+    this.mustChangeNavigationBar$.next(this.defaultNavigationBar);
+  }
+
 }

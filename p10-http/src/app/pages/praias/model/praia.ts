@@ -1,6 +1,6 @@
 export class Praia {
-    id?:        number;
-    nome?:      string;
-    regiao?:    string;
-    banho?:     boolean;
+    id?: number;
+    nome?: string;
+    regiao?: string;
+    banho?: boolean;
 }

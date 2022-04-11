@@ -1,5 +1,6 @@
-import { Observable, of } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs';
 
 import { EnviarValorService } from '../enviar-valor.service';
 

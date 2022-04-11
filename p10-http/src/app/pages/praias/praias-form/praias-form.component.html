@@ -1,1 +1,61 @@
-<p>praias-form works!</p>
+<h5 style="margin-bottom: 20px;" *ngIf="!isEditing; else editing">Nova praia</h5>
+<ng-template #editing><h5 style="margin-bottom: 20px;">Editar praia</h5></ng-template>
+
+<form class="needs-validation" novalidate [formGroup]="form">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom01" style="margin-bottom: 5px;">Nome</label>
+            <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                formControlName="nome"
+                [ngClass]="{ 'is-invalid': checkFieldIsInvalid('nome') }"
+            >
+            <div class="invalid-feedback" *ngIf="checkFieldIsInvalid('nome')">
+                Preenchimento obrigatório
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom02" style="margin-bottom: 5px;">Região</label>
+            <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                formControlName="regiao"
+                [ngClass]="{ 'is-invalid': checkFieldIsInvalid('regiao') }"
+            >
+            <div class="invalid-feedback" *ngIf="checkFieldIsInvalid('regiao')">
+                Preenchimento obrigatório
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationCustom03" style="margin-bottom: 5px;">Própria para banho</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <label class="radio-inline" *ngFor="let item of banhoOps" style="margin-right: 15px;">
+                    <input
+                        type="radio"
+                        [value]="item.valor"
+                        class="custom-control-input"
+                        style="margin-right: 5px;"
+                        formControlName="banho"
+                    >
+                    <label class="custom-control-label" for="customRadioInline1">{{ item.descricao }}</label>
+                </label>
+            </div>
+            <div class="invalid-feedback">
+                Preenchimento obrigatório
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-primary" (click)="onSubmit()" *ngIf="!isLoading; else loading">Salvar</button>
+
+        <ng-template #loading>
+            <div id="loading">
+                <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+            </div>
+        </ng-template>
+    </div>
+</form>

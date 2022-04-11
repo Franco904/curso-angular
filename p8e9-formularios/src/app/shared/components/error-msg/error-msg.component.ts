@@ -20,10 +20,10 @@ export class ErrorMsgComponent implements OnInit {
 
   // Itera cada validator (required, etc) no "errors" do controle
   get errorMessage() {
-    for (const property in this.control?.errors) {    
+    for (const property in this.control?.errors) {
       if (this.control?.errors.hasOwnProperty(property) && this.control.touched) {
 
-          return FormValidations.getErrors(property, this.control.errors[property])
+        return FormValidations.getErrors(property, this.control.errors[property])
       }
     }
 

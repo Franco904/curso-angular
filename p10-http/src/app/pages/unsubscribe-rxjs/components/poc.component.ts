@@ -13,7 +13,7 @@ import { EnviarValorService } from '../enviar-valor.service';
   `
 })
 export class PocComponent implements OnInit, OnDestroy {
-  
+
   nome = 'Componente sem unsubscribe';
   valor: string = '';
 
@@ -21,8 +21,8 @@ export class PocComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.enviarValorService.getValor()
-    .pipe(tap(v => console.log(this.nome, v)))
-    .subscribe(novoValor => this.valor = novoValor);
+      .pipe(tap(v => console.log(this.nome, v)))
+      .subscribe(novoValor => this.valor = novoValor);
   }
 
   ngOnDestroy() {
