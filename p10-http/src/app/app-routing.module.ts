@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
 import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
-import { UnsubscribePocComponent } from './pages/unsubscribe-rxjs/unsubscribe-poc/unsubscribe-poc.component';
-import { UploadFileComponent } from './pages/upload-file/upload-file.component';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
+  },
   {
     path: 'praias',
     loadChildren: () => import('./pages/praias/praias.module').then(module => module.PraiasModule)
   },
-  { path: 'rxjs-poc', component: UnsubscribePocComponent },
-  { path: 'upload', component: UploadFileComponent },
-  { path: '', redirectTo: "/upload", pathMatch: 'full' }, // Mudar para /home depois
+  { 
+    path: 'upload',
+    loadChildren: () => import('./pages/upload-file/upload-file.module').then(module => module.UploadFileModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then(module => module.SearchModule)
+  },
+  { path: '', redirectTo: "/search", pathMatch: 'full' }, // Mudar para /home depois
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
