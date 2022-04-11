@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     path: 'search',
     loadChildren: () => import('./pages/search/search.module').then(module => module.SearchModule)
   },
-  { path: '', redirectTo: "/search", pathMatch: 'full' }, // Mudar para /home depois
+  { path: '', redirectTo: "/home", pathMatch: 'full' },
   { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
